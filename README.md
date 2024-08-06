@@ -6,7 +6,6 @@ This is a backend API for a car rental system built with Node.js, Express, and M
 
 - User registration and login with JWT authentication
 - Password encryption using bcrypt
-- Car registration with rental history
 - MySQL database integration
 
 ## Prerequisites
@@ -86,36 +85,6 @@ The server will start running on `http://localhost:3000`.
   }
   ```
 
-### Car Management
-
-#### Add a Car
-- **URL**: `/api/car/create`
-- **Method**: `POST`
-- **Body**: 
-  ```json
-  {
-    "category": "string",
-    "model": "string",
-    "number_plate": "string",
-    "current_city": "string",
-    "rent_per_hr": "number",
-    "rent_history": [
-      {
-        "origin": "string",
-        "destination": "string",
-        "amount": "number"
-      }
-    ]
-  }
-  ```
-- **Success Response**: 
-  ```json
-  {
-    "status": "Car successfully added",
-    "car_id": "number",
-    "status_code": 200
-  }
-  ```
 
 ## Database Schema
 

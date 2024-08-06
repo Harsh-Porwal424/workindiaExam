@@ -86,25 +86,6 @@ app.post('/api/register', async (req, res) => {
     }
 })
 
-//Registering a Car
-app.post('/api/car/create', async (req, res) => {
-    const {category, model, number_plate, current_city, rent_per_hr, rent_history} = req.body;
-    const newCar = await addCar(category, model, number_plate, current_city, rent_per_hr);
-    const CarId = newCar.insertId;
-    if(rent_history){
-        for(let i=0; i<rent_history.length; i++){
-            await historyCar(CarId, rent_history[i].origin, rent_history[i].destination, rent_history[i].amount);
-        }
-    }
-    const data = {
-        "status": "Car successfully added",
-        "car_id": newCar.insertId,
-        "status_code": 200
-    }
-    res.status(200).send(data);
-    console.log("Car added successfully");
-})
-
 app.listen(3000, () => {
     console.log("Server running on port 3000");
 })
