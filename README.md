@@ -1,6 +1,6 @@
 # Car Rental Backend API
 
-This is a backend API for a car rental system built with Node.js, Express, and MySQL. It provides endpoints for user authentication, registration, and car management.
+This is a backend API for a car rental system. It provides endpoints for user authentication, registration.
 
 ## Features
 
@@ -8,11 +8,6 @@ This is a backend API for a car rental system built with Node.js, Express, and M
 - Password encryption using bcrypt
 - MySQL database integration
 
-## Prerequisites
-
-- Node.js
-- MySQL
-- npm (Node Package Manager)
 
 ## Setup
 
@@ -36,69 +31,7 @@ This is a backend API for a car rental system built with Node.js, Express, and M
 To start the server, run:
 
 ```
-node server.js
+node app.js
 ```
 
 The server will start running on `http://localhost:3000`.
-
-## API Endpoints
-
-### User Authentication
-
-#### Login
-- **URL**: `/api/login`
-- **Method**: `POST`
-- **Body**: 
-  ```json
-  {
-    "username": "string",
-    "password": "string"
-  }
-  ```
-- **Success Response**: 
-  ```json
-  {
-    "status": "Login successful",
-    "status_code": 200,
-    "user_id": "number",
-    "access_token": "string"
-  }
-  ```
-
-#### Register
-- **URL**: `/api/register`
-- **Method**: `POST`
-- **Body**: 
-  ```json
-  {
-    "username": "string",
-    "password": "string",
-    "email": "string"
-  }
-  ```
-- **Success Response**: 
-  ```json
-  {
-    "status": "Account successfully created",
-    "status_code": 200,
-    "user_id": "number"
-  }
-  ```
-
-
-## Database Schema
-
-The project uses three main tables:
-
-1. `car_rental_login`: Stores user login information
-2. `car_rental_details`: Stores car details
-3. `rental_history`: Stores the rental history for each car
-
-For detailed schema information, refer to the SQL creation scripts in the source code.
-
-## Security
-
-- Passwords are hashed using bcrypt before storing in the database
-- JWT is used for authentication
-- Environment variables are used to store sensitive information
-
