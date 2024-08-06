@@ -51,6 +51,29 @@ export async function addUser(username, password, email) {
   return result;
 }
 
+export async function addCar(category, model, number_plate, current_city, rent_per_hr) {
+    const [result] = await pool.query(
+      `
+      INSERT INTO car_rental_details (category, model, number_plate, current_city, rent_per_hr)
+      VALUES (?, ?, ?, ?, ?)
+      `,
+      [category, model, number_plate, current_city, rent_per_hr]
+    );
+    return result;
+}
+
+export async function historyCar(car_id, origin, destination, amount) {
+    const [result] = await pool.query(
+      `
+      INSERT INTO rental_history (car_id, origin, destination, amount)
+      VALUES (?, ?, ?, ?)
+      `,
+      [car_id, origin, destination, amount]
+    );
+    return result;
+}
+
+
 // const result = await addUser('testUser', 'testPassword', 'testEmail@example.com');
 // console.log(result);
 
