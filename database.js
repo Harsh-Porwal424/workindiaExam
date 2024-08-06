@@ -28,14 +28,14 @@ export async function getLogin(id) {
   return rows[0];
 }
 
-export async function getUserDetail(username, password) {
+export async function getUserDetail(username) {
     const [rows] = await pool.query(
       `
       SELECT * 
       FROM car_rental_login
-      WHERE username = ? AND password = ?
+      WHERE username = ?
       `,
-      [username, password]
+      [username]
     );
     return rows[0];
 }
